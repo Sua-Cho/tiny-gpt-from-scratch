@@ -2,9 +2,8 @@
 
 # tiny-gpt-from-scratch 
 GPT-2의 핵심 구조인 Decoder-only Transformer를 PyTorch로 구현했습니다. 
-사용자는 임의의 txt 파일을 입력할 수 있으며, 모델은 해당 텍스트를 학습한 뒤 시작 문장을 기반으로 새로운 문장을 생성합니다. 
-
-이를 통해 Transformer 기반 언어 모델의 동작 원리를 직접 구현하고 실험하였다.
+사용자는 임의의 txt 파일을 입력할 수 있으며,
+모델은 해당 텍스트를 학습한 뒤 시작 문장을 기반으로 새로운 문장을 생성합니다. 
 
 ## Project Structure 
 ``` text
