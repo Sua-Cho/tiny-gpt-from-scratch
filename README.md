@@ -1,13 +1,13 @@
 
 
 # tiny-gpt-from-scratch 
-GPT-2의 핵심 구조인 Decoder-only Transformer를 PyTorch로 구현했습니다.<br>
+본 프로젝트는 GPT-2의 핵심 구조인 Decoder-only Transformer를 PyTorch를 이용하여 구현했습니다.<br>
 사용자는 임의의 txt 파일을 입력할 수 있으며,
 모델은 해당 텍스트를 학습한 뒤 시작 문장을 기반으로 새로운 문장을 생성합니다. 
 
 ## Project Structure 
 ``` text
-├── tiny_gpt            # GPT style Decoder-only Transformer
+├── tiny_gpt.py            # GPT style Decoder-only Transformer
 └── korean_novel.txt    # 한국 소설 txt 파일 
 ```
 
@@ -27,7 +27,7 @@ Result :
 
 input : "시작 문장을 입력하세요: 이년!"
 
-위와 같이 입력하면, 모델은 `이년!`이라는 첫 글자를 기준으로 다음 문자를 하나씩 예측하면서 새로운 문장을 생성합니다.
+위와 같이 입력하면, 모델은 `이년!`이라는 시작 문장을 기준으로 다음 문자를 하나씩 예측하면서 새로운 문장을 생성합니다.
 기본적으로 최대 200개의 새로운 문자를 생성하도록 설정했습니다.
 
 ```
@@ -39,7 +39,7 @@ input : "시작 문장을 입력하세요: 이년!"
 
 모델의 Block Size는 64로 설정되어 있습니다.
 즉, 다음 문자를 예측할 때 최대 64개의 이전 문자만 참고할 수 있습니다.
-학습 시간이 늘어나는 것을 방지하고, 메모리 사용량을 고려하여 더 긴 문맥을 참고하지 않았습니다. 
+학습 시간과 메모리 사용량을 고려하여 Context Length(Block Size)를 64로 제한했습니다.
 
 - Generation Length
 
@@ -51,7 +51,7 @@ input : "시작 문장을 입력하세요: 이년!"
 
 학습 Epoch 수는 20으로 설정했습니다.
 Epoch를 증가시키면 학습 데이터에 더 잘 적합될 수 있지만, 데이터 규모가 작기 때문에 과적합(Overfitting)이 발생할 가능성이 있습니다.
-따라서, 모델 일반화 성능을 고려하여 20 Epoch를 사용했습니다.
+따라서 과적합을 방지하고 모델의 일반화 성능을 유지하기 위해 20 Epoch를 사용했습니다.
 
 ```
 
