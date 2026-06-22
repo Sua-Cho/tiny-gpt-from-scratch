@@ -291,7 +291,7 @@ print(
     generate(
         model=model,
         start_text=start_text,
-        max_new_tokens=500,
+        max_new_tokens=200,
         block_size=block_size,
         stoi=stoi,
         itos=itos,
